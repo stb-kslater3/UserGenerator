@@ -1,0 +1,24 @@
+<template>
+    <div>
+
+        <table>
+            <tr>
+                <th colspan="100">
+                    New User
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <c-apex-record-element
+                        object-name='User'
+                        fields-table={newUser_FieldsTable}
+                        hidden-fields={newUser_HiddenFields}
+                        onvaluechanged={newUser_ValueChangeHandler}>
+                    </c-apex-record-element>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</template>
