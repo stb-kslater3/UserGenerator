@@ -1,24 +1,108 @@
 <template>
-    <div>
+    <div class="slds-box slds-theme_shade">
 
-        <table>
-            <tr>
-                <th colspan="100">
-                    New User
-                </th>
-            </tr>
+        <div class="slds-text-heading_medium slds-align_absolute-center">
+            Salesforce User
+        </div>
 
-            <tr>
-                <td>
-                    <c-apex-record-element
-                        object-name='User'
-                        fields-table={newUser_FieldsTable}
-                        hidden-fields={newUser_HiddenFields}
-                        onvaluechanged={newUser_ValueChangeHandler}>
-                    </c-apex-record-element>
-                </td>
-            </tr>
-        </table>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <lightning-input type="text" label="First Name" data-id="FirstName"></lightning-input>
+            </div>
+
+            <div class="slds-col">
+                <lightning-input type="text" label="Last Name" data-id="LastName"></lightning-input>
+            </div>
+        </div>
+
+
+        <div class="slds-m-top_medium">
+            <lightning-input type="email" label="Email" data-id="Email"></lightning-input>
+        </div>
+
+
+        <div class="slds-m-top_medium slds-grid slds-gutters">
+            <div class="slds-col">
+                <lightning-input type="text" label="Username" data-id="Username"></lightning-input>
+            </div>
+
+            <div class="slds-col">
+                <lightning-input type="text" label="Nickname" data-id="Nickname"></lightning-input>
+            </div>
+
+            <div class="slds-col">
+                <lightning-input type="text" label="Alias" data-id="Alias"></lightning-input>
+            </div>
+        </div>
+
+        <div class="slds-m-top_medium">
+            <lightning-combobox label="Profile" data-id="Profile" options={fieldElements.Profile.options} value={fieldElements.Profile.defaultOption}></lightning-combobox>
+        </div>
+
+        <div class="slds-m-top_large">
+            <lightning-button variant="neutral" label="Submit" data-id="SalesforceSubmit" onclick={submitSalesforce}></lightning-button>
+        </div>
 
     </div>
+
+
+    <div class="slds-m-top_medium slds-box slds-theme_shade">
+
+        <div class="slds-text-heading_medium slds-align_absolute-center">
+            Rootstock User
+        </div>
+
+        <div class="slds-m-top_medium">
+            <lightning-record-edit-form
+                object-api-name='rstk__syusr__c'>
+                <lightning-input-field
+                    field-name='rstk__syusr_employee__c' data-id="UserLookup">
+                </lightning-input-field>
+            </lightning-record-edit-form>
+        </div>
+
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <lightning-input type="text" label="Clock Number" data-id="ClockNumber"></lightning-input>
+            </div>
+
+            <div class="slds-col">
+                <lightning-input type="text" label="Hourly Rate" data-id="HourlyRate" value='18.25'></lightning-input>
+            </div>
+        </div>
+
+        <div class="slds-m-top_medium slds-grid slds-gutters">
+            <div class="slds-col">
+                <div class="slds-align_absolute-center">
+                    <lightning-input type="checkbox" label="Labor Ohd" data-id="LaborOhd" checked></lightning-input>
+                </div>
+
+                <div class="slds-m-top_small slds-align_absolute-center">
+                    <lightning-input type="checkbox" label="Labor Charging User" data-id="LaborChargingUser" checked></lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-col">
+                <div class="slds-m-top_small slds-align_absolute-center">
+                    <lightning-combobox label="Labor Grade" data-id="LaborGrade" options={fieldElements.LaborGrade.options} value={fieldElements.LaborGrade.defaultOption}></lightning-combobox>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-m-top_medium slds-grid slds-gutters">
+            <div class="slds-col">
+                <lightning-combobox label="Default Company" data-id="DefaultCompany" options={fieldElements.DefaultCompany.options} value={fieldElements.DefaultCompany.defaultOption}></lightning-combobox>
+            </div>
+
+            <div class="slds-col">
+                <lightning-combobox label="Default Division" data-id="DefaultDivision" options={fieldElements.DefaultDivision.options} value={fieldElements.DefaultDivision.defaultOption}></lightning-combobox>
+            </div>
+        </div>
+
+        <div class="slds-m-top_large">
+            <lightning-button variant="neutral" label="Submit" data-id="RootstockSubmit" onclick={submitRootstock}></lightning-button>
+        </div>
+
+    </div>
+
 </template>
