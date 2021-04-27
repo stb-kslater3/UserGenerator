@@ -247,7 +247,7 @@ export default class UserGenerator_Main extends LightningElement {
                         });
                     });
 
-                    this.fieldElements['LaborGrade'].defaultOption = this.fieldElements['LaborGrade'].options[3].value;
+                    this.fieldElements['LaborGrade'].defaultOption = this.fieldElements['LaborGrade'].options[2].value;
                 }else {
                     alert('No records found for LaborGrade');
                     console.log('No records found for LaborGrade');
